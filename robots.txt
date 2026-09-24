@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dimitriafreitas.com/sitemap.xml
+Sitemap: https://www.dimitriafreitas.com/sitemap.xml
