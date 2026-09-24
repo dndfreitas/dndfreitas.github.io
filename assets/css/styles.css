@@ -724,7 +724,7 @@ summary {
 
 /* Stable project image hooks; missing files fall back to the neutral media background. */
 .media-public-relocations {
-  background-image: url("../images/research/public-sector-relocations.jpg");
+  background-image: url("../images/research/public-sector-relocations.png");
 }
 .media-public-employment {
   background-image: url("../images/research/public-employment-reallocation.jpg");
@@ -733,16 +733,16 @@ summary {
   background-image: url("../images/research/zoning.jpg");
 }
 .media-fuel-tax {
-  background-image: url("../images/research/fuel-tax.jpg");
+  background-image: url("../images/research/fuel-tax.png");
 }
 .media-poll {
   background-image: url("../images/research/place-based-policy-poll.jpg");
 }
 .media-populism {
-  background-image: url("../images/research/far-right-populism.jpg");
+  background-image: url("../images/research/far-right-populism.png");
 }
 .media-xu {
-  background-image: url("../images/research/xu-comment.jpg");
+  background-image: url("../images/research/xu-comment.png");
 }
 .feature .video-frame {
   align-self: center;
