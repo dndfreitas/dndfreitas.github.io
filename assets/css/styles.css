@@ -213,16 +213,13 @@ main {
   padding: 3rem 0;
 }
 .project-media {
-  width: 100%;
-  min-height: 215px;
-  background-color: var(--soft);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border: 1px solid #ededed;
-}
-.project-media.contain {
-  background-size: contain;
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 340px;
+  justify-self: center;
+  object-fit: contain;
 }
 .video-frame {
   position: relative;
@@ -239,7 +236,7 @@ main {
   border: 0;
 }
 .feature .project-media {
-  min-height: 300px;
+  max-height: 340px;
 }
 .project-image {
   display: block;
@@ -313,7 +310,8 @@ main {
   border-bottom: 1px solid var(--line);
 }
 .feature-project .project-media {
-  min-height: 270px;
+  max-height: 320px;
+  align-self: center;
 }
 .feature-project h3 {
   margin: 0 0 0.5rem;
@@ -334,6 +332,10 @@ main {
   margin: -0.45rem 0 0.9rem;
   color: var(--muted);
   font-size: 0.82rem;
+}
+.feature .draft-note,
+.feature .award {
+  color: #7a1f2b;
 }
 .coverage {
   margin: 1rem 0 0;
@@ -477,7 +479,8 @@ main {
   border-bottom: 1px solid var(--line);
 }
 .catalog-row .project-media {
-  min-height: 125px;
+  max-height: 180px;
+  align-self: center;
 }
 .catalog-row h3 {
   margin: 0 0 0.35rem;
@@ -497,6 +500,9 @@ main {
   max-width: 760px;
   margin: 0.35rem 0 0;
   font-size: 0.88rem;
+}
+.course-title {
+  font-weight: 600;
 }
 .teaching-list {
   width: 100%;
@@ -655,9 +661,6 @@ summary {
   .feature {
     padding: 2.4rem 0;
   }
-  .feature .project-media {
-    min-height: 230px;
-  }
   .project-row {
     grid-template-columns: 1fr;
     gap: 1.15rem;
@@ -674,12 +677,19 @@ summary {
     border-left: 0;
     border-top: 1px solid var(--line);
   }
+  .jmp-intro {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .jmp-video {
+    max-width: 100%;
+  }
   .catalog-row {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
   .catalog-row .project-media {
-    min-height: 210px;
+    max-height: 260px;
   }
   .project-row .project-media {
     min-height: 210px;
@@ -722,34 +732,21 @@ summary {
   }
 }
 
-/* Stable project image hooks; missing files fall back to the neutral media background. */
-.media-public-relocations {
-  background-image: url("../images/research/public-sector-relocations.png");
-}
-.media-public-employment {
-  background-image: url("../images/research/public-employment-reallocation.jpg");
-}
-.media-zoning {
-  background-image: url("../images/research/zoning.jpg");
-}
-.media-fuel-tax {
-  background-image: url("../images/research/fuel-tax.png");
-}
-.media-poll {
-  background-image: url("../images/research/place-based-policy-poll.jpg");
-}
-.media-populism {
-  background-image: url("../images/research/far-right-populism.png");
-}
-.media-xu {
-  background-image: url("../images/research/xu-comment.png");
-}
 .feature .video-frame {
   align-self: center;
 }
+.jmp-intro {
+  display: grid;
+  grid-template-columns: minmax(260px, 310px) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+.jmp-intro .page-header {
+  padding-bottom: 0;
+}
 .jmp-video {
-  max-width: 720px;
-  margin: 1.5rem 0;
+  width: 100%;
+  margin: 0;
 }
 .jmp-presentations {
   margin-top: 2.25rem;
@@ -795,7 +792,7 @@ summary {
   font: inherit;
   cursor: pointer;
 }
-.pdf-modal object {
+.pdf-modal iframe {
   display: block;
   width: 100%;
   height: calc(100% - 84px);
@@ -809,4 +806,14 @@ summary {
   color: var(--muted);
   font-size: 0.82rem;
   font-weight: 500;
+}
+
+@media (max-width: 720px) {
+  .jmp-intro {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .jmp-video {
+    max-width: 100%;
+  }
 }
