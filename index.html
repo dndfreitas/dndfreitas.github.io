@@ -231,12 +231,12 @@
             productivity, spatial economic activity, and welfare.
           </p>
           <div class="document-links">
+            <!-- Dated manuscript path; replace with a stable *_current.pdf file in working_papers when available. -->
             <a
-              href="https://github.com/dndfreitas/working_papers/blob/319530e1fad236c282fa684ab7511adb5eefcb99/JMP/2026_05_21_Freitas_Public_Sector_Relocations_Regional_Dev_compressed.pdf.pdf"
+              href="https://raw.githubusercontent.com/dndfreitas/working_papers/main/JMP/2026_05_21_Freitas_Public_Sector_Relocations_Regional_Dev_compressed.pdf.pdf"
+              data-pdf-preview
               >PDF</a
             >
-            <a href="files/Freitas_JMP_Slides.pdf">Slides</a>
-            <a href="jmp/">Paper details</a>
           </div>
         </div>
       </section>
@@ -305,8 +305,8 @@
         <section class="category" aria-labelledby="policy-heading">
           <h2 class="category-heading" id="policy-heading">Policy Paper</h2>
           <article class="feature-project">
-            <!-- Research image: assets/images/research/fuel-tax.jpg -->
-            <div class="project-media media-fuel-tax" aria-hidden="true"></div>
+            <!-- Research image: assets/images/research/fuel-tax.png -->
+            <div class="project-media contain media-fuel-tax" aria-hidden="true"></div>
             <div>
               <p class="project-status">Policy paper</p>
               <h3>
@@ -357,6 +357,7 @@
           <h2 class="category-heading" id="working-heading">Working Papers</h2>
           <div class="compact-papers">
             <article class="compact-paper">
+              <!-- Dated manuscript path; replace with a stable *_current.pdf file in working_papers when available. -->
               <p class="project-status">Working paper</p>
               <h3>
                 <a
@@ -377,6 +378,7 @@
               </div>
             </article>
             <article class="compact-paper">
+              <!-- Dated manuscript path; replace with a stable *_current.pdf file in working_papers when available. -->
               <p class="project-status">Working paper</p>
               <h3>
                 <a
@@ -441,37 +443,69 @@
         </button>
       </div>
       <object
-        data="https://github.com/dndfreitas/working_papers/blob/319530e1fad236c282fa684ab7511adb5eefcb99/JMP/2026_05_21_Freitas_Public_Sector_Relocations_Regional_Dev_compressed.pdf.pdf"
+        data="https://raw.githubusercontent.com/dndfreitas/working_papers/main/JMP/2026_05_21_Freitas_Public_Sector_Relocations_Regional_Dev_compressed.pdf.pdf"
         type="application/pdf"
+        data-pdf-object
       >
         <p>
           This browser cannot embed the PDF.
           <a
-            href="https://github.com/dndfreitas/working_papers/blob/319530e1fad236c282fa684ab7511adb5eefcb99/JMP/2026_05_21_Freitas_Public_Sector_Relocations_Regional_Dev_compressed.pdf.pdf"
+            href="https://raw.githubusercontent.com/dndfreitas/working_papers/main/JMP/2026_05_21_Freitas_Public_Sector_Relocations_Regional_Dev_compressed.pdf.pdf"
+            target="_blank"
+            rel="noopener"
             >Open the PDF directly</a
           >.
         </p>
       </object>
       <p class="pdf-modal-fallback">
         <a
-          href="https://github.com/dndfreitas/working_papers/blob/319530e1fad236c282fa684ab7511adb5eefcb99/JMP/2026_05_21_Freitas_Public_Sector_Relocations_Regional_Dev_compressed.pdf.pdf"
-          >Open PDF in a new page</a
+          href="https://raw.githubusercontent.com/dndfreitas/working_papers/main/JMP/2026_05_21_Freitas_Public_Sector_Relocations_Regional_Dev_compressed.pdf.pdf"
+          target="_blank"
+          rel="noopener"
+          >Open PDF in a new tab</a
         >
       </p>
     </dialog>
     <script>
+      // Dated manuscript path; replace with a stable *_current.pdf file in working_papers when available.
+      const jmpPdfUrl =
+        "https://raw.githubusercontent.com/dndfreitas/working_papers/main/JMP/2026_05_21_Freitas_Public_Sector_Relocations_Regional_Dev_compressed.pdf.pdf";
       const pdfDialog = document.querySelector("#jmp-pdf-preview");
+      const pdfObject = document.querySelector("[data-pdf-object]");
+      let pdfObjectUrl;
+
+      async function openPdfPreview(event) {
+        event.preventDefault();
+        pdfDialog.showModal();
+        try {
+          const response = await fetch(jmpPdfUrl);
+          if (!response.ok) throw new Error("PDF request failed");
+          pdfObjectUrl = URL.createObjectURL(await response.blob());
+          pdfObject.data = pdfObjectUrl;
+        } catch (error) {
+          pdfObject.data = jmpPdfUrl;
+        }
+      }
+
+      function closePdfPreview() {
+        pdfDialog.close();
+      }
+
       document
         .querySelector("[data-pdf-preview]")
-        .addEventListener("click", (event) => {
-          event.preventDefault();
-          pdfDialog.showModal();
-        });
+        .addEventListener("click", openPdfPreview);
       document
         .querySelector("[data-pdf-close]")
-        .addEventListener("click", () => pdfDialog.close());
+        .addEventListener("click", closePdfPreview);
       pdfDialog.addEventListener("click", (event) => {
-        if (event.target === pdfDialog) pdfDialog.close();
+        if (event.target === pdfDialog) closePdfPreview();
+      });
+      pdfDialog.addEventListener("close", () => {
+        pdfObject.removeAttribute("data");
+        if (pdfObjectUrl) {
+          URL.revokeObjectURL(pdfObjectUrl);
+          pdfObjectUrl = undefined;
+        }
       });
     </script>
   </body>
