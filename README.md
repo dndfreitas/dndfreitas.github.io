@@ -1,2 +1,2 @@
-# dndfreitas.github.io
+# Dimitria Freitas
 Academic website of Dimitria Freitas
