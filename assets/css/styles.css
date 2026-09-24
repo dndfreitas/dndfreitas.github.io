@@ -804,3 +804,9 @@ summary {
   margin: 0.55rem 1rem;
   font-size: 0.82rem;
 }
+.draft-note {
+  margin: 0.35rem 0 0.7rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+}
