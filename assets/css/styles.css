@@ -110,7 +110,6 @@ main {
   width: 100%;
   max-width: 330px;
   height: auto;
-  filter: grayscale(100%);
 }
 .hero-copy {
   padding-top: 0.1rem;
@@ -140,11 +139,14 @@ main {
   font-size: 0.92rem;
   font-weight: 550;
 }
-.identity {
-  max-width: 670px;
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.6;
+.research-bio {
+  max-width: 690px;
+  margin-top: 0.9rem;
+}
+.research-bio p {
+  margin: 0 0 0.55rem;
+  font-size: 0.96rem;
+  line-height: 1.58;
 }
 .hero-links {
   display: flex;
@@ -193,6 +195,14 @@ main {
   color: var(--dark);
   font-weight: 600;
 }
+.references a {
+  color: inherit;
+  text-decoration-color: transparent;
+}
+.references a:hover {
+  color: var(--black);
+  text-decoration-color: currentColor;
+}
 .section-rule {
   border-top: 1px solid var(--line);
 }
@@ -205,8 +215,28 @@ main {
 .project-media {
   width: 100%;
   min-height: 215px;
-  background: var(--soft);
+  background-color: var(--soft);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   border: 1px solid #ededed;
+}
+.project-media.contain {
+  background-size: contain;
+}
+.video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--soft);
+}
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 .feature .project-media {
   min-height: 300px;
@@ -274,6 +304,81 @@ main {
   height: 1px;
   flex: 1;
   background: var(--line);
+}
+.feature-project {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.38fr) minmax(0, 0.62fr);
+  gap: clamp(3rem, 7vw, 6.5rem);
+  padding: 2rem 0 2.5rem;
+  border-bottom: 1px solid var(--line);
+}
+.feature-project .project-media {
+  min-height: 270px;
+}
+.feature-project h3 {
+  margin: 0 0 0.5rem;
+  color: var(--black);
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+}
+.feature-project h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+.feature-project h3 a:hover {
+  text-decoration: underline;
+}
+.award {
+  margin: -0.45rem 0 0.9rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+.coverage {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+.coverage strong {
+  color: var(--dark);
+  font-weight: 600;
+}
+.coverage a {
+  color: inherit;
+}
+.compact-category {
+  padding-bottom: 0.5rem;
+}
+.compact-papers {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-bottom: 1px solid var(--line);
+}
+.compact-paper {
+  padding: 1.5rem 1.5rem 1.7rem 0;
+}
+.compact-paper + .compact-paper {
+  padding-left: 1.5rem;
+  border-left: 1px solid var(--line);
+}
+.compact-paper h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+.compact-paper h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+.compact-paper h3 a:hover {
+  text-decoration: underline;
+}
+.compact-paper > p:not(.meta):not(.project-status) {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.55;
 }
 .project-row {
   display: grid;
@@ -364,6 +469,35 @@ main {
 .index-item .project-links {
   margin-top: 0.65rem;
 }
+.catalog-row {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 2rem;
+  padding: 1.35rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.catalog-row .project-media {
+  min-height: 125px;
+}
+.catalog-row h3 {
+  margin: 0 0 0.35rem;
+  color: var(--black);
+  font-size: 1.08rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+.catalog-row h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+.catalog-row h3 a:hover {
+  text-decoration: underline;
+}
+.catalog-row p:not(.meta):not(.project-status) {
+  max-width: 760px;
+  margin: 0.35rem 0 0;
+  font-size: 0.88rem;
+}
 .teaching-list {
   width: 100%;
   margin-top: 2rem;
@@ -399,6 +533,13 @@ main {
 .term {
   color: var(--muted);
   font-size: 0.82rem;
+}
+.unit {
+  display: block;
+  margin-top: 0.12rem;
+  color: var(--light-muted);
+  font-size: 0.76rem;
+  line-height: 1.4;
 }
 .thesis-supervision {
   margin-top: 2.5rem;
@@ -497,7 +638,8 @@ summary {
     padding: 2.25rem 0 3.5rem;
   }
   .hero,
-  .feature {
+  .feature,
+  .feature-project {
     grid-template-columns: 1fr;
     gap: 1.75rem;
   }
@@ -520,6 +662,24 @@ summary {
     grid-template-columns: 1fr;
     gap: 1.15rem;
     padding: 1.5rem 0;
+  }
+  .compact-papers {
+    grid-template-columns: 1fr;
+  }
+  .compact-paper {
+    padding: 1.3rem 0;
+  }
+  .compact-paper + .compact-paper {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+  .catalog-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .catalog-row .project-media {
+    min-height: 210px;
   }
   .project-row .project-media {
     min-height: 210px;
@@ -560,4 +720,27 @@ summary {
   .project-media {
     filter: none;
   }
+}
+
+/* Stable project image hooks; missing files fall back to the neutral media background. */
+.media-public-relocations {
+  background-image: url("../images/research/public-sector-relocations.jpg");
+}
+.media-public-employment {
+  background-image: url("../images/research/public-employment-reallocation.jpg");
+}
+.media-zoning {
+  background-image: url("../images/research/zoning.jpg");
+}
+.media-fuel-tax {
+  background-image: url("../images/research/fuel-tax.jpg");
+}
+.media-poll {
+  background-image: url("../images/research/place-based-policy-poll.jpg");
+}
+.media-populism {
+  background-image: url("../images/research/far-right-populism.jpg");
+}
+.media-xu {
+  background-image: url("../images/research/xu-comment.jpg");
 }
