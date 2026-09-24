@@ -230,7 +230,10 @@
             productivity, spatial economic activity, and welfare.
           </p>
           <div class="document-links">
-            <a href="files/Freitas_JMP.pdf">PDF</a>
+            <a
+              href="https://github.com/dndfreitas/working_papers/blob/319530e1fad236c282fa684ab7511adb5eefcb99/JMP/2026_05_21_Freitas_Public_Sector_Relocations_Regional_Dev_compressed.pdf.pdf"
+              >PDF</a
+            >
             <a href="files/Freitas_JMP_Slides.pdf">Slides</a>
             <a href="jmp/">Paper details</a>
           </div>
@@ -244,7 +247,10 @@
           </h2>
           <article class="feature-project">
             <!-- Research image: assets/images/research/public-employment-reallocation.jpg -->
-            <div class="project-media contain media-public-employment" aria-hidden="true"></div>
+            <div
+              class="project-media contain media-public-employment"
+              aria-hidden="true"
+            ></div>
             <div>
               <p class="project-status">Book chapter · Forthcoming</p>
               <h3>
@@ -350,7 +356,7 @@
               <p class="project-status">Working paper</p>
               <h3>
                 <a
-                  href="https://github.com/dndfreitas/working_papers/tree/main/PBP%20at%20the%20Poll"
+                  href="https://raw.githubusercontent.com/dndfreitas/working_papers/main/PBP%20at%20the%20Poll/2026_02_13_PBP_at_the_polls.pdf"
                   >Do place-based policies matter at the poll?</a
                 >
               </h3>
@@ -361,8 +367,8 @@
               </p>
               <div class="project-links">
                 <a
-                  href="https://github.com/dndfreitas/working_papers/tree/main/PBP%20at%20the%20Poll"
-                  >Paper materials</a
+                  href="https://raw.githubusercontent.com/dndfreitas/working_papers/main/PBP%20at%20the%20Poll/2026_02_13_PBP_at_the_polls.pdf"
+                  >PDF</a
                 >
               </div>
             </article>
@@ -370,7 +376,7 @@
               <p class="project-status">Working paper</p>
               <h3>
                 <a
-                  href="https://github.com/dndfreitas/working_papers/tree/main/FR%20Populism%20in%20Western%20Democracies"
+                  href="https://raw.githubusercontent.com/dndfreitas/working_papers/main/FR%20Populism%20in%20Western%20Democracies/2024_01_24_TheDriversofFarRightPopulism.pdf"
                   >The Drivers of Far-Right Populism in Western Democracies</a
                 >
               </h3>
@@ -381,8 +387,8 @@
               </p>
               <div class="project-links">
                 <a
-                  href="https://github.com/dndfreitas/working_papers/tree/main/FR%20Populism%20in%20Western%20Democracies"
-                  >Paper materials</a
+                  href="https://raw.githubusercontent.com/dndfreitas/working_papers/main/FR%20Populism%20in%20Western%20Democracies/2024_01_24_TheDriversofFarRightPopulism.pdf"
+                  >PDF</a
                 >
               </div>
             </article>
@@ -418,5 +424,51 @@
         ><a href="mailto:dimitria.freitas@hu-berlin.de">Email</a>
       </div>
     </footer>
+
+    <dialog
+      class="pdf-modal"
+      id="jmp-pdf-preview"
+      aria-labelledby="pdf-preview-title"
+    >
+      <div class="pdf-modal-header">
+        <h2 id="pdf-preview-title">Job Market Paper</h2>
+        <button type="button" aria-label="Close PDF preview" data-pdf-close>
+          Close
+        </button>
+      </div>
+      <object
+        data="https://github.com/dndfreitas/working_papers/blob/319530e1fad236c282fa684ab7511adb5eefcb99/JMP/2026_05_21_Freitas_Public_Sector_Relocations_Regional_Dev_compressed.pdf.pdf"
+        type="application/pdf"
+      >
+        <p>
+          This browser cannot embed the PDF.
+          <a
+            href="https://github.com/dndfreitas/working_papers/blob/319530e1fad236c282fa684ab7511adb5eefcb99/JMP/2026_05_21_Freitas_Public_Sector_Relocations_Regional_Dev_compressed.pdf.pdf"
+            >Open the PDF directly</a
+          >.
+        </p>
+      </object>
+      <p class="pdf-modal-fallback">
+        <a
+          href="https://github.com/dndfreitas/working_papers/blob/319530e1fad236c282fa684ab7511adb5eefcb99/JMP/2026_05_21_Freitas_Public_Sector_Relocations_Regional_Dev_compressed.pdf.pdf"
+          >Open PDF in a new page</a
+        >
+      </p>
+    </dialog>
+    <script>
+      const pdfDialog = document.querySelector("#jmp-pdf-preview");
+      document
+        .querySelector("[data-pdf-preview]")
+        .addEventListener("click", (event) => {
+          event.preventDefault();
+          pdfDialog.showModal();
+        });
+      document
+        .querySelector("[data-pdf-close]")
+        .addEventListener("click", () => pdfDialog.close());
+      pdfDialog.addEventListener("click", (event) => {
+        if (event.target === pdfDialog) pdfDialog.close();
+      });
+    </script>
   </body>
 </html>

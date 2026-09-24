@@ -744,3 +744,63 @@ summary {
 .media-xu {
   background-image: url("../images/research/xu-comment.jpg");
 }
+.feature .video-frame {
+  align-self: center;
+}
+.jmp-video {
+  max-width: 720px;
+  margin: 1.5rem 0;
+}
+.jmp-presentations {
+  margin-top: 2.25rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+.jmp-presentations h2 {
+  margin: 0 0 0.65rem;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+.jmp-presentations p {
+  margin: 0.4rem 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.pdf-modal {
+  width: min(900px, calc(100% - 2rem));
+  height: min(82vh, 760px);
+  padding: 0;
+  border: 1px solid var(--line);
+  background: var(--background);
+}
+.pdf-modal::backdrop {
+  background: rgba(17, 17, 17, 0.72);
+}
+.pdf-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--line);
+}
+.pdf-modal-header h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.pdf-modal-header button {
+  border: 0;
+  background: transparent;
+  color: var(--dark);
+  font: inherit;
+  cursor: pointer;
+}
+.pdf-modal object {
+  display: block;
+  width: 100%;
+  height: calc(100% - 84px);
+}
+.pdf-modal-fallback {
+  margin: 0.55rem 1rem;
+  font-size: 0.82rem;
+}
