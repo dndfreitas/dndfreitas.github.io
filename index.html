@@ -226,14 +226,6 @@
             employment contributes to private agglomeration economies in a
             spatial-equilibrium model.
           </p>
-          <div class="document-links">
-            <!-- Dated manuscript path; replace with a stable *_current.pdf file in working_papers when available. -->
-            <a
-              href="https://raw.githubusercontent.com/dndfreitas/working_papers/main/JMP/2026_05_21_Freitas_Public_Sector_Relocations_Regional_Dev_compressed.pdf.pdf"
-              data-pdf-preview
-              >PDF</a
-            >
-          </div>
         </div>
       </section>
 
@@ -442,75 +434,5 @@
       </div>
     </footer>
 
-    <dialog
-      class="pdf-modal"
-      id="jmp-pdf-preview"
-      aria-labelledby="pdf-preview-title"
-    >
-      <div class="pdf-modal-header">
-        <h2 id="pdf-preview-title">Job Market Paper</h2>
-        <button type="button" aria-label="Close PDF preview" data-pdf-close>
-          Close
-        </button>
-      </div>
-      <iframe
-        src="about:blank"
-        title="Job Market Paper PDF preview"
-        data-pdf-frame
-      ></iframe>
-      <p class="pdf-modal-fallback">
-        <a
-          href="https://raw.githubusercontent.com/dndfreitas/working_papers/main/JMP/2026_05_21_Freitas_Public_Sector_Relocations_Regional_Dev_compressed.pdf.pdf"
-          target="_blank"
-          rel="noopener"
-          >Open PDF in a new tab</a
-        >
-      </p>
-    </dialog>
-    <script>
-      // Dated manuscript path; replace with a stable *_current.pdf file in working_papers when available.
-      const jmpPdfUrl =
-        "https://raw.githubusercontent.com/dndfreitas/working_papers/main/JMP/2026_05_21_Freitas_Public_Sector_Relocations_Regional_Dev_compressed.pdf.pdf";
-      const pdfDialog = document.querySelector("#jmp-pdf-preview");
-      const pdfFrame = document.querySelector("[data-pdf-frame]");
-      let pdfObjectUrl;
-
-      async function openPdfPreview(event) {
-        event.preventDefault();
-        pdfDialog.showModal();
-        try {
-          const response = await fetch(jmpPdfUrl);
-          if (!response.ok) {
-            pdfFrame.src = "about:blank";
-            return;
-          }
-          pdfObjectUrl = URL.createObjectURL(await response.blob());
-          pdfFrame.src = pdfObjectUrl;
-        } catch (error) {
-          pdfFrame.src = "about:blank";
-        }
-      }
-
-      function closePdfPreview() {
-        pdfDialog.close();
-      }
-
-      document
-        .querySelector("[data-pdf-preview]")
-        .addEventListener("click", openPdfPreview);
-      document
-        .querySelector("[data-pdf-close]")
-        .addEventListener("click", closePdfPreview);
-      pdfDialog.addEventListener("click", (event) => {
-        if (event.target === pdfDialog) closePdfPreview();
-      });
-      pdfDialog.addEventListener("close", () => {
-        pdfFrame.src = "about:blank";
-        if (pdfObjectUrl) {
-          URL.revokeObjectURL(pdfObjectUrl);
-          pdfObjectUrl = undefined;
-        }
-      });
-    </script>
   </body>
 </html>
