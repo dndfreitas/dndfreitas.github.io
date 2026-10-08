@@ -810,6 +810,10 @@ summary {
   font-size: 0.82rem;
   font-weight: 500;
 }
+.draft-note a {
+  color: var(--black);
+  font-weight: 650;
+}
 
 @media (max-width: 720px) {
   .chapter-layout {
