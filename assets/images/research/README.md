@@ -6,6 +6,7 @@ Add project-specific images using these stable filenames:
 - `place-based-policy-poll.jpg`
 - `far-right-populism.png`
 - `xu-comment.png`
+- `reproducible-robust-by-design.png`
 - `public-employment-reallocation.jpg`
 - `fuel-tax.png`
 - `zoning.jpg`

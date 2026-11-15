@@ -357,7 +357,7 @@ main {
 }
 .compact-papers {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   border-bottom: 1px solid var(--line);
 }
 .compact-paper {
@@ -366,6 +366,13 @@ main {
 .compact-paper + .compact-paper {
   padding-left: 1.5rem;
   border-left: 1px solid var(--line);
+}
+.compact-paper:nth-child(odd) {
+  padding-left: 0;
+  border-left: 0;
+}
+.compact-paper:nth-child(n + 3) {
+  border-top: 1px solid var(--line);
 }
 .compact-paper h3 {
   margin: 0 0 0.35rem;
