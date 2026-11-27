@@ -270,6 +270,7 @@ main {
 .feature .abstract {
   max-width: 700px;
   margin: 0;
+  text-align: justify;
 }
 .document-links,
 .project-links {
@@ -391,6 +392,7 @@ main {
   margin: 0;
   font-size: 0.84rem;
   line-height: 1.55;
+  text-align: justify;
 }
 .project-row {
   display: grid;
@@ -438,6 +440,7 @@ main {
   max-width: 720px;
   margin: 0;
   font-size: 0.94rem;
+  text-align: justify;
 }
 .page-header {
   max-width: 720px;
